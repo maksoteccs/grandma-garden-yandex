@@ -41,9 +41,8 @@
           <img class="sky-cloud cloud-two" src="assets/art/cloud-long.svg" alt="">
           <div class="stage-vignette"></div>
           <div class="season-sign"><small data-i18n="newSeason">Сезон</small><strong id="season-label">Сезон 1</strong><span id="income-label">×1 урожай</span></div>
-          <img id="granny-art" class="granny-art" src="assets/art/granny-hose.png" alt="Весёлая бабушка со шлангом" role="button" tabindex="0">
+          <img id="granny-art" class="granny-art" src="assets/art/granny-hose-v2.png" alt="Весёлая бабушка со шлангом" role="button" tabindex="0">
           <div id="granny-bubble" class="granny-bubble" hidden>Шланг — это лейка с интернетом!</div>
-          <svg class="garden-hose" viewBox="0 0 900 420" preserveAspectRatio="none" aria-hidden="true"><path class="hose-shadow" d="M80 395c120-46 142 8 252-38 91-38 113-5 198-31 89-27 141-3 284-73"/><path class="hose-body" d="M80 395c120-46 142 8 252-38 91-38 113-5 198-31 89-27 141-3 284-73"/><path class="hose-water" d="M814 253c35-24 54-42 76-78"/></svg>
           <div id="beds-container" class="beds-container"></div>
           <div id="effects-layer" class="effects-layer" aria-hidden="true"></div>
           <div class="selected-status">
@@ -85,10 +84,16 @@
 
   <div id="mega-watermelon" class="mega-watermelon" hidden>
     <div class="mega-rays"></div>
-    <button id="mega-watermelon-hit" class="mega-watermelon-hit" type="button" aria-label="Ударить мега-арбуз">
-      <img src="assets/crops/watermelon.svg" alt="Мега-арбуз">
+    <button id="mega-watermelon-hit" class="mega-watermelon-hit" type="button" aria-label="Собрать мега-урожай">
+      <span class="mega-harvest-pile" aria-hidden="true">
+        <img class="mega-crop mega-pumpkin" src="assets/crops/pumpkin.svg" alt="">
+        <img class="mega-crop mega-cabbage" src="assets/crops/cabbage.svg" alt="">
+        <img class="mega-crop mega-tomato" src="assets/crops/tomato.svg" alt="">
+        <img class="mega-crop mega-carrot" src="assets/crops/carrot.svg" alt="">
+        <img class="mega-crop mega-radish" src="assets/crops/radish.svg" alt="">
+      </span>
     </button>
-    <div class="mega-copy"><small data-i18n="rareHarvest">РЕДКИЙ УРОЖАЙ</small><h2 data-i18n="megaWatermelon">МЕГА-АРБУЗ!</h2><p id="mega-watermelon-label">Нажми ещё 12 раз</p><div class="mega-progress"><i id="mega-watermelon-progress"></i></div></div>
+    <div class="mega-copy"><small data-i18n="rareHarvest">РЕДКИЙ УРОЖАЙ</small><h2 data-i18n="megaWatermelon">МЕГА-УРОЖАЙ!</h2><p id="mega-watermelon-label">Собери ещё 10 овощей</p><div class="mega-progress"><i id="mega-watermelon-progress"></i></div><div class="mega-timer-row"><b id="mega-timer-label">10 сек.</b><span class="mega-timer"><i id="mega-timer-progress"></i></span></div></div>
   </div>
 
   <div id="collection-modal" class="modal-backdrop" hidden>

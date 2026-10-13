@@ -116,3 +116,55 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
 @media(max-width:700px){.beds-container{bottom:16%;height:30%}.garden-hose{left:7%;bottom:4%;width:92%;height:40%}.granny-bubble{left:8%;bottom:57%;max-width:44%;padding:7px 9px;font-size:8px}.rewards-card{grid-template-columns:45px minmax(0,1fr) 82px;padding:7px}.fertilizer-visual{width:45px;height:45px}.fertilizer-visual img{width:43px;height:43px}.mega-watermelon-hit{width:118vw;height:68vh}.mega-copy{margin-top:-24px}.cloud-one{width:58%;opacity:.3}.cloud-two{width:72%}}
 @media(orientation:landscape) and (max-height:620px){.beds-container{bottom:10%;height:37%}.mega-watermelon{grid-template-columns:1fr 310px;grid-template-rows:1fr}.mega-watermelon-hit{width:70vw;height:94vh}.mega-copy{margin:0 12px 0 -90px}.granny-bubble{bottom:54%}}
 
+/* Stable stage geometry: every crop stays centered in one third of the soil. */
+.garden-stage{container-type:size}
+.beds-container{left:25%;right:2%;bottom:14%;height:34%;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;align-items:stretch}
+.bed-slot{width:100%;height:100%;min-width:0;box-sizing:border-box;border-radius:44% 44% 30% 30%;overflow:visible}
+.bed-slot+ .bed-slot{border-left:1px dashed rgba(255,239,187,.28)}
+.bed-slot:before{content:"";position:absolute;inset:42% 5% 0;border-radius:50%;background:radial-gradient(ellipse at center,rgba(112,61,27,.22),rgba(54,30,15,.12) 58%,transparent 72%);pointer-events:none}
+.bed-crop{left:50%;bottom:1%;width:90%;height:auto;max-height:100%;aspect-ratio:1/1;object-fit:contain;object-position:center bottom;transform:translateX(-50%) scale(var(--growth-scale,.24));transform-origin:50% 94%}
+.granny-art{left:-8%;bottom:-1%;width:auto;height:50%;max-width:none;max-height:none;object-fit:contain;object-position:left bottom}
+
+/* Crop picker cards never allow labels or prices to escape their cells. */
+.crop-list{min-width:0;gap:7px;overscroll-behavior-inline:contain;scroll-snap-type:x proximity}
+.crop-card{flex:0 0 clamp(96px,21%,116px);min-width:0;width:clamp(96px,21%,116px);height:70px;padding:5px 6px;grid-template-columns:clamp(34px,38%,44px) minmax(0,1fr);gap:5px;overflow:hidden;scroll-snap-align:start}
+.crop-card>span{min-width:0;max-width:100%;overflow:hidden}
+.crop-card strong,.crop-card small{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:1.15}
+.crop-card strong{font-size:clamp(8px,.72vw,10px)}
+.crop-card small{font-size:clamp(7px,.61vw,8px)}
+.crop-card img{width:min(100%,44px);height:auto;aspect-ratio:1/1;object-fit:contain}
+
+/* Timed multi-crop encounter. */
+.mega-watermelon-hit{width:min(90vw,780px);height:min(68vh,630px)}
+.mega-harvest-pile{position:relative;display:block;width:min(86vw,720px);max-height:100%;aspect-ratio:1.28/1;filter:drop-shadow(0 28px 24px rgba(5,25,12,.4))}
+.mega-harvest-pile:before{content:"";position:absolute;left:8%;right:8%;bottom:0;height:31%;border-radius:50%;background:radial-gradient(ellipse,#8a4f24 0 38%,#543018 66%,transparent 70%);filter:blur(2px)}
+.mega-harvest-pile .mega-crop{position:absolute;height:auto;object-fit:contain;filter:drop-shadow(0 18px 12px rgba(11,38,18,.3));transform-origin:50% 85%}
+.mega-pumpkin{z-index:5;left:25%;bottom:2%;width:50%!important;transform:rotate(-2deg)}
+.mega-cabbage{z-index:4;left:3%;bottom:10%;width:43%!important;transform:rotate(-10deg)}
+.mega-tomato{z-index:4;right:4%;bottom:12%;width:38%!important;transform:rotate(9deg)}
+.mega-carrot{z-index:3;right:3%;top:1%;width:30%!important;transform:rotate(17deg)}
+.mega-radish{z-index:3;left:7%;top:2%;width:30%!important;transform:rotate(-15deg)}
+.mega-timer-row{margin-top:9px;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:9px}
+.mega-timer-row>b{min-width:88px;color:#fff0a0;font-size:10px;text-align:left}
+.mega-timer{height:9px;overflow:hidden;border-radius:999px;background:rgba(7,29,15,.5);box-shadow:inset 0 1px 3px rgba(0,0,0,.38)}
+.mega-timer i{display:block;width:100%;height:100%;border-radius:inherit;background:linear-gradient(90deg,#ff725e,#ffe263);transition:width .1s linear}
+.mega-watermelon.is-missed .mega-watermelon-hit{animation:mega-miss .42s ease forwards}
+@keyframes mega-miss{to{opacity:0;transform:translateY(22%) scale(.72);filter:grayscale(.6)}}
+
+@media(max-width:700px){
+  .beds-container{left:22%;right:1%;bottom:16%;height:30%}
+  .granny-art{left:-12%;height:48%}
+  .crop-card{flex-basis:96px;width:96px;height:62px;grid-template-columns:34px minmax(0,1fr);padding:4px 5px}
+  .crop-card img{width:36px}
+  .crop-card strong{font-size:8px}.crop-card small{font-size:7px}
+  .mega-watermelon-hit{width:100vw;height:62vh}
+  .mega-harvest-pile{width:104vw}
+  .mega-copy{width:min(350px,94vw);margin-top:-18px;padding:12px 14px 14px}
+}
+@media(orientation:landscape) and (max-height:620px){
+  .beds-container{left:23%;right:2%;bottom:10%;height:37%}
+  .granny-art{left:-2%;bottom:-7%;height:100%}
+  .mega-watermelon-hit{width:65vw;height:90vh}
+  .mega-harvest-pile{width:62vw}
+}
+
