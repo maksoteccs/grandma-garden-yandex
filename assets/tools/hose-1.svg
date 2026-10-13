@@ -2,4 +2,3 @@
   <defs><linearGradient id="h" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9d66d"/><stop offset=".5" stop-color="#669342"/><stop offset="1" stop-color="#355d35"/></linearGradient><linearGradient id="n" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5d48b"/><stop offset="1" stop-color="#91632d"/></linearGradient><filter id="s" x="-25%" y="-25%" width="150%" height="170%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-opacity=".24"/></filter></defs>
   <g filter="url(#s)" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M118 55c-10-25-67-22-76 8-10 34 48 56 72 29 20-22-7-44-35-37-31 8-44 50-12 69" stroke="url(#h)" stroke-width="15"/><path d="m112 52 18-20 19 16-18 21Z" fill="url(#n)" stroke="#694b2c" stroke-width="5"/><path d="m139 35 11-13" stroke="#6c8190" stroke-width="9"/></g>
 </svg>
-

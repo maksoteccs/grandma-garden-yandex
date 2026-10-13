@@ -123,7 +123,7 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
 .bed-slot+ .bed-slot{border-left:1px dashed rgba(255,239,187,.28)}
 .bed-slot:before{content:"";position:absolute;inset:42% 5% 0;border-radius:50%;background:radial-gradient(ellipse at center,rgba(112,61,27,.22),rgba(54,30,15,.12) 58%,transparent 72%);pointer-events:none}
 .bed-crop{left:50%;bottom:1%;width:90%;height:auto;max-height:100%;aspect-ratio:1/1;object-fit:contain;object-position:center bottom;transform:translateX(-50%) scale(var(--growth-scale,.24));transform-origin:50% 94%}
-.granny-art{left:-8%;bottom:-1%;width:auto;height:50%;max-width:none;max-height:none;object-fit:contain;object-position:left bottom}
+.granny-art{left:-2%;bottom:-1%;width:auto;height:50%;max-width:none;max-height:none;object-fit:contain;object-position:left bottom}
 
 /* Crop picker cards never allow labels or prices to escape their cells. */
 .crop-list{min-width:0;gap:7px;overscroll-behavior-inline:contain;scroll-snap-type:x proximity}
@@ -168,3 +168,13 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
   .mega-harvest-pile{width:62vw}
 }
 
+/* The photo's visible soil narrows on panoramic stages, so the three logical
+   bed centres follow that perspective instead of the full image width. */
+@container (min-aspect-ratio:2/1){
+  .beds-container{left:27%;right:16%}
+  .granny-art{left:6%;bottom:-7%;height:100%}
+}
+@container (min-aspect-ratio:3/1){
+  .beds-container{left:28%;right:18%}
+  .granny-art{left:7%;height:102%}
+}

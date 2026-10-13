@@ -2,4 +2,3 @@
   <defs><linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".92"/><stop offset="1" stop-color="#e7f4f5" stop-opacity=".38"/></linearGradient><filter id="s" x="-15%" y="-35%" width="130%" height="180%"><feGaussianBlur stdDeviation="2"/></filter></defs>
   <path filter="url(#s)" d="M23 119c1-22 19-39 43-40 7-31 34-53 67-53 23 0 44 11 56 29 12-15 31-25 53-25 34 0 62 23 68 54 8-5 18-8 29-8 29 0 53 19 56 43Z" fill="url(#c)"/>
 </svg>
-
