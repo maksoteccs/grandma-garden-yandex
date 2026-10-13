@@ -1,0 +1,11 @@
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+*.log
+
+# Local builds and scratch files
+*.zip
+work/
+scratch/
