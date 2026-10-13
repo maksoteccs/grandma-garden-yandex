@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f2b964"/><stop offset=".52" stop-color="#b86b31"/><stop offset="1" stop-color="#74411f"/></linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9a6335"/><stop offset="1" stop-color="#4d2e1e"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#c9ec83"/><stop offset="1" stop-color="#3b9147"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="170%" height="180%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#342715" flood-opacity=".23"/></filter>
+  </defs>
+  <g filter="url(#shadow)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M22 91 79 67l59 24-14 49H37Z" fill="url(#soil)" stroke="#563522" stroke-width="5"/>
+    <path d="m22 91 15 49h87l14-49-12 7H35Z" fill="url(#wood)" stroke="#75421f" stroke-width="6"/>
+    <path d="M37 118h87M46 99l-2 37M114 99l2 37" fill="none" stroke="#f5c879" stroke-width="5" opacity=".5"/>
+    <path d="M79 93V43" fill="none" stroke="#37723c" stroke-width="7"/>
+    <path d="M78 70C58 68 45 54 46 36c18-1 32 10 36 29Z" fill="url(#leaf)" stroke="#34763f" stroke-width="5"/>
+    <path d="M81 61c5-18 18-29 36-29 1 18-11 33-32 38Z" fill="url(#leaf)" stroke="#34763f" stroke-width="5"/>
+    <path d="M69 50c5 6 8 12 10 20M103 43c-9 5-15 12-20 22" fill="none" stroke="#d6f2a0" stroke-width="4" opacity=".55"/>
+    <path d="M36 89c26-14 59-14 89 0" fill="none" stroke="#c28651" stroke-width="6" opacity=".7"/>
+  </g>
+</svg>
+

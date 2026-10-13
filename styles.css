@@ -75,3 +75,27 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
 }
 @media(max-width:440px){.wooden-brand{min-width:88px;max-width:90px;padding-inline:5px;font-size:8px}.wallet{min-width:44px;max-width:56px;padding-right:3px}.wallet span{width:23px;height:23px;flex-basis:23px}.wallet strong{font-size:8px}.icon-button{width:28px;height:28px}.granny-art{left:-11%;width:46%}.beds-container{left:29%}.collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(orientation:landscape) and (max-height:620px) and (max-width:900px){.upgrades-panel{top:59px;bottom:6px}.panel-scrim:not([hidden]){inset:54px 0 0}.garden-stage{min-height:0}.beds-container{bottom:18%;height:34%}.beds-dock{min-height:82px}.granny-art{width:33%;max-height:78%}}
+
+/* One art direction: warm storybook illustration across scenery, crops and tools. */
+.garden-stage:before{filter:saturate(.92) contrast(.97) sepia(.035)}
+.upgrades-panel,.beds-dock{background:
+  radial-gradient(circle at 16% 0,rgba(255,255,255,.82),transparent 29%),
+  linear-gradient(145deg,rgba(255,250,236,.98),rgba(244,229,198,.98))}
+.crop-card,.upgrade-card,.tool-progress,.collection-card{border-color:rgba(112,73,37,.16);background:
+  radial-gradient(circle at 18% 8%,rgba(255,255,255,.96),transparent 37%),
+  linear-gradient(145deg,#fffaf0,#f4e5c9);box-shadow:inset 0 1px rgba(255,255,255,.9),0 5px 12px rgba(72,48,26,.09)}
+.crop-card.is-selected{border-color:#75a852;background:
+  radial-gradient(circle at 18% 8%,rgba(255,255,255,.95),transparent 36%),
+  linear-gradient(145deg,#f5f5d9,#dce9b6);box-shadow:inset 0 0 0 2px rgba(102,151,67,.16),0 5px 12px rgba(72,48,26,.09)}
+.crop-card img,.collection-card img,.upgrade-icon img,.tool-visual img{filter:drop-shadow(0 5px 4px rgba(55,36,19,.2)) saturate(.94)}
+.upgrade-icon,.tool-visual{overflow:hidden;border:1px solid rgba(116,77,37,.15);background:
+  radial-gradient(circle at 35% 24%,#fffef7 0 22%,transparent 48%),
+  linear-gradient(145deg,#f7edcf,#dfe8bc);box-shadow:inset 0 2px rgba(255,255,255,.85),inset 0 -3px rgba(102,81,42,.08)}
+.upgrade-icon img{width:100%;height:100%;transform:scale(1.07)}
+.tool-visual img{transform:scale(1.02)}
+.season-card{border-color:rgba(106,74,41,.16);color:#57412c;background:
+  radial-gradient(circle at 9% 12%,rgba(255,255,255,.72),transparent 30%),
+  linear-gradient(135deg,#f5ebd5,#e3d2ae)}
+.seed-gem{border:1px solid rgba(91,55,115,.2);background:radial-gradient(circle at 35% 25%,#ead3ff,#9b68c8 54%,#684285);box-shadow:inset 0 -4px rgba(54,28,90,.16),0 5px 10px rgba(76,45,111,.14)}
+.buy-button,.season-card button,.modal-primary{background:linear-gradient(#7fbc58,#4d8d3b);box-shadow:inset 0 1px rgba(255,255,255,.35),0 4px 0 #356b31}
+

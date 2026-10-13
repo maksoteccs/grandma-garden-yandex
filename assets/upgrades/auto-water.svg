@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <defs>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#bfeaf3"/><stop offset=".48" stop-color="#63b9ca"/><stop offset="1" stop-color="#327d91"/></linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b9e77b"/><stop offset="1" stop-color="#3f984a"/></linearGradient>
+    <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#9a6335"/><stop offset="1" stop-color="#53341f"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="170%" height="180%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#342715" flood-opacity=".23"/></filter>
+  </defs>
+  <g filter="url(#shadow)" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M24 123c31-13 78-13 112 0l-9 18H33Z" fill="url(#soil)" stroke="#4d3626" stroke-width="5"/>
+    <path d="M79 125V66" fill="none" stroke="#496866" stroke-width="9"/>
+    <path d="M50 69h60" fill="none" stroke="#496866" stroke-width="10"/>
+    <path d="M40 70c0-13 10-23 23-23h34c13 0 23 10 23 23" fill="none" stroke="url(#metal)" stroke-width="13"/>
+    <circle cx="50" cy="71" r="10" fill="#e7f5f4" stroke="#327d91" stroke-width="5"/><circle cx="80" cy="63" r="10" fill="#e7f5f4" stroke="#327d91" stroke-width="5"/><circle cx="110" cy="71" r="10" fill="#e7f5f4" stroke="#327d91" stroke-width="5"/>
+    <path d="M46 89l-10 19M58 90l-5 20M76 82l-7 25M88 82l5 24M105 89l7 19M116 89l10 16" fill="none" stroke="#56bce5" stroke-width="6" opacity=".9"/>
+    <path d="M68 129c-3-16-1-29 10-39 8 13 8 25 1 39Z" fill="url(#leaf)" stroke="#337442" stroke-width="4"/>
+    <path d="M83 130c2-14 10-24 23-27-1 15-9 25-22 30Z" fill="url(#leaf)" stroke="#337442" stroke-width="4"/>
+    <path d="M43 54c19-21 55-25 78-4" fill="none" stroke="#eefbff" stroke-width="5" opacity=".55"/>
+  </g>
+</svg>
+
