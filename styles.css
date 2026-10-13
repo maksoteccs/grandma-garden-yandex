@@ -24,7 +24,7 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
 .icon-button{width:45px;height:45px;border:2px solid rgba(113,72,32,.18);border-radius:50%;color:#6e4a29;background:linear-gradient(#fffaf0,#efddbb);box-shadow:inset 0 2px white,0 4px 0 #b88d53;font-size:20px;transition:.14s}.icon-button:active{transform:translateY(3px);box-shadow:0 1px 0 #b88d53}.collection-button{color:#fff;background:linear-gradient(#f4b959,#df7f2a);box-shadow:inset 0 2px rgba(255,255,255,.5),0 4px 0 #9a531f}
 
 .main-layout{min-height:0;padding:12px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,360px);gap:12px}.play-area{min-width:0;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:10px}
-.garden-stage{position:relative;min-height:0;overflow:hidden;border:5px solid rgba(255,247,222,.95);border-radius:28px;background-image:url("assets/art/garden-background.png");background-size:cover;background-position:center;box-shadow:var(--soft-shadow),inset 0 0 0 1px rgba(84,56,30,.2);isolation:isolate}
+.garden-stage{position:relative;min-height:0;overflow:hidden;border:5px solid rgba(255,247,222,.95);border-radius:28px;background-image:url("assets/art/garden-background.jpg");background-size:cover;background-position:center;box-shadow:var(--soft-shadow),inset 0 0 0 1px rgba(84,56,30,.2);isolation:isolate}
 .stage-vignette{position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(22,38,15,.13),transparent 35%,transparent 80%,rgba(32,42,15,.08)),linear-gradient(0deg,rgba(31,24,11,.13),transparent 35%)}
 .season-sign{position:absolute;z-index:12;left:18px;top:18px;min-width:128px;padding:9px 14px;border:2px solid #996032;border-radius:12px;color:#54331f;background:linear-gradient(#ffe2a2,#efbf6c);box-shadow:inset 0 2px rgba(255,255,255,.65),0 6px 0 #995b2d,0 11px 20px rgba(68,38,18,.2);text-align:center;transform:rotate(-2deg)}.season-sign:before,.season-sign:after{content:"";position:absolute;top:-21px;width:4px;height:22px;background:#735039}.season-sign:before{left:25px}.season-sign:after{right:25px}.season-sign small,.season-sign strong,.season-sign span{display:block}.season-sign small{font-size:8px;font-weight:900;text-transform:uppercase;opacity:.65}.season-sign strong{font-size:14px}.season-sign span{margin-top:1px;color:#77603e;font-size:9px;font-weight:900}
 .granny-art{position:absolute;z-index:5;left:-1%;bottom:-2%;width:min(38%,390px);max-height:88%;object-fit:contain;object-position:left bottom;filter:drop-shadow(0 15px 14px rgba(41,31,16,.24));pointer-events:none}
@@ -60,7 +60,7 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
 
 /* Visual polish: animated garden depth, grounded crops, consistent SVG interface. */
 .wallet span{overflow:visible;color:inherit;background:transparent!important;box-shadow:none!important}.wallet span img{width:100%;height:100%;display:block;filter:drop-shadow(0 3px 2px rgba(94,56,16,.2))}.icon-button{display:grid;place-items:center;padding:7px}.icon-button img{width:100%;height:100%;display:block;object-fit:contain}.mobile-upgrades-button,.mobile-panel-close{display:none}
-.garden-stage{background:#8fc8dd}.garden-stage:before{content:"";position:absolute;z-index:0;inset:-2.5%;background:url("assets/art/garden-background.png") center/cover no-repeat;transform:scale(1.035);animation:garden-breathe 16s ease-in-out infinite alternate;will-change:transform}.garden-stage:after{content:"";position:absolute;z-index:1;inset:-15%;pointer-events:none;background:radial-gradient(circle at 72% 20%,rgba(255,246,166,.28),transparent 18%),linear-gradient(112deg,transparent 34%,rgba(255,250,209,.11) 47%,transparent 59%);mix-blend-mode:screen;animation:sun-wander 12s ease-in-out infinite alternate}.stage-vignette{z-index:2;pointer-events:none}.season-sign,.weed-alert,.selected-status{isolation:isolate}
+.garden-stage{background:#8fc8dd}.garden-stage:before{content:"";position:absolute;z-index:0;inset:-2.5%;background:url("assets/art/garden-background.jpg") center/cover no-repeat;transform:scale(1.035);animation:garden-breathe 16s ease-in-out infinite alternate;will-change:transform}.garden-stage:after{content:"";position:absolute;z-index:1;inset:-15%;pointer-events:none;background:radial-gradient(circle at 72% 20%,rgba(255,246,166,.28),transparent 18%),linear-gradient(112deg,transparent 34%,rgba(255,250,209,.11) 47%,transparent 59%);mix-blend-mode:screen;animation:sun-wander 12s ease-in-out infinite alternate}.stage-vignette{z-index:2;pointer-events:none}.season-sign,.weed-alert,.selected-status{isolation:isolate}
 @keyframes garden-breathe{0%{transform:scale(1.035) translate3d(-.35%,0,0)}100%{transform:scale(1.05) translate3d(.35%,-.3%,0)}}
 @keyframes sun-wander{0%{transform:translate3d(-2%,0,0);opacity:.62}100%{transform:translate3d(3%,1%,0);opacity:1}}
 .beds-container{left:30%;right:3%;bottom:24%;height:31%;gap:3%}.bed-slot{height:100%;border-radius:46% 46% 34% 34%}.bed-slot:after{left:5%;right:5%;bottom:1%;height:27%;background:radial-gradient(ellipse,rgba(47,26,12,.72),rgba(93,49,22,.36) 58%,transparent 73%);filter:blur(2px)}.bed-slot.is-locked{height:64%;border-color:rgba(255,244,205,.8);border-radius:48% 48% 34% 34%;background:linear-gradient(180deg,rgba(83,69,35,.28),rgba(53,38,21,.58));box-shadow:inset 0 -10px 20px rgba(36,24,13,.15)}.bed-crop{bottom:2%;width:94%;max-height:112%;filter:drop-shadow(0 9px 7px rgba(45,28,12,.28))}.bed-index{bottom:-12px}.weed-button{right:-1%;bottom:0;width:50%;height:66%}
@@ -177,4 +177,76 @@ button:focus-visible{outline:4px solid rgba(255,196,52,.7);outline-offset:2px}
 @container (min-aspect-ratio:3/1){
   .beds-container{left:28%;right:18%}
   .granny-art{left:7%;height:102%}
+}
+
+/* Stage HUD: the bed card and the weed alert live together in the sky above
+   the beds in every layout, so they can never cover a bed. */
+.garden-stage .stage-hud{position:absolute;z-index:16;top:12px;right:12px;width:min(270px,44%);display:flex;flex-direction:column;align-items:flex-end;gap:7px;pointer-events:none}
+.garden-stage .stage-hud>*{position:relative;inset:auto;margin:0;pointer-events:auto}
+.garden-stage .stage-hud>.selected-status{width:100%;transform:none}
+@media(max-width:700px){
+  .garden-stage .stage-hud{top:7px;right:7px;width:min(225px,57%);gap:5px}
+}
+/* Short landscape phones have little sky: slim card, weed alert beside it. */
+@media(orientation:landscape) and (max-height:620px){
+  .garden-stage .stage-hud{top:7px;right:7px;width:auto;flex-direction:row-reverse;align-items:flex-start}
+  .garden-stage .stage-hud>.selected-status{width:min(210px,36cqw);padding:5px 9px 6px;gap:0 8px;border-radius:11px}
+  .selected-copy small{font-size:7px}.selected-copy strong{font-size:13px;line-height:1.1}
+  .selected-status>span{font-size:8px}
+  .progress-track{height:12px;margin-top:3px;border-width:2px}.progress-track b{font-size:7px}
+  .garden-stage .stage-hud>.weed-alert{max-width:min(120px,22cqw);padding:3px 7px 3px 3px;gap:4px;border-radius:10px}
+  .weed-alert img{width:24px;height:24px}.weed-alert strong{font-size:8px;line-height:1.15}.weed-alert small{display:none}
+}
+
+/* Tapping a bed must not leave a focus ring shaped like the bed button. */
+button{-webkit-tap-highlight-color:transparent}
+.bed-slot:focus,.bed-slot:focus-visible,.weed-button:focus,.mega-watermelon-hit:focus,.mega-watermelon-hit:focus-visible{outline:none}
+.granny-art:focus,.granny-art:focus-visible{outline:none}
+/* Gradient fills must start under the semi-transparent border, otherwise the
+   gradient repeats there and shows a light strip at the bottom of the circle. */
+.icon-button{background-origin:border-box}
+.collection-button img{transform:translateY(1px)}
+
+/* Garden scene locked to the artwork.
+   The scene box always has the background's aspect ratio (1586x992), so the
+   beds, crops and granny are placed in image coordinates and stay on the
+   painted soil at any stage size. The box covers the stage like
+   background-size:cover, but is capped so the playable band (granny + soil,
+   image x 3%-87%, y 46%-88%) is never cropped; on tall stages the leftover
+   space above it continues the painted sky. */
+.garden-stage{overflow:hidden;overflow:clip;background:linear-gradient(#58a9f2,#6ab6f8 70%)}
+.garden-stage:before{display:none}
+.garden-stage:after{z-index:4}
+.garden-stage .garden-scene{
+  --hud-reserve:0px;--band-top:.47;
+  --sw:min(max(100cqw,159.9cqh),119cqw,420cqh);
+  --sh:calc(var(--sw) / 1.599);
+  position:absolute;z-index:3;width:var(--sw);height:var(--sh);
+  left:clamp(min(0px,calc(100cqw - var(--sw))),calc(50cqw - var(--sw) * .45),max(0px,calc(100cqw - var(--sw))));
+  top:max(calc(100cqh - var(--sh)),calc(var(--hud-reserve) - var(--sh) * var(--band-top)),min(0px,calc(100cqh - var(--sh) * .88)));
+  background:url("assets/art/garden-background.jpg") 0 0/100% 100% no-repeat;
+  -webkit-mask-image:linear-gradient(transparent,#000 7%);mask-image:linear-gradient(transparent,#000 7%);
+  transform-origin:55% 75%;animation:scene-breathe 16s ease-in-out infinite alternate
+}
+@keyframes scene-breathe{to{transform:scale(1.015)}}
+.garden-scene .stage-vignette{z-index:1}
+.garden-stage>.sky-cloud{z-index:2}
+.garden-scene .beds-container{left:24.5%;right:13.8%;top:47%;bottom:auto;height:32.5%;gap:0}
+.garden-scene .granny-art{left:.5%;right:auto;bottom:16%;width:auto;height:52%;max-width:none;max-height:none;z-index:5}
+.garden-scene .granny-bubble{left:17%;bottom:70%;max-width:min(250px,34%)}
+/* Short landscape: slightly smaller crops and a one-line HUD strip; the scene
+   is shifted so the crops start below that strip. */
+@media(orientation:landscape) and (max-height:620px){
+  .garden-stage .garden-scene{--hud-reserve:36px;--band-top:.57}
+  .garden-scene .bed-crop{width:74%}
+  .garden-stage .stage-hud{top:6px;right:6px;align-items:stretch}
+  .garden-stage .stage-hud>.selected-status{width:auto;max-width:62cqw;padding:3px 8px;grid-template-columns:auto auto minmax(70px,120px);align-items:center;gap:0 8px;border-radius:9px}
+  .stage-hud .selected-copy small{display:none}.stage-hud .selected-copy strong{font-size:11px;white-space:nowrap}
+  .stage-hud .selected-status>span{white-space:nowrap}
+  .stage-hud .progress-track{grid-column:auto;height:11px;margin:0}
+  .garden-stage .stage-hud>.weed-alert{max-width:none;padding:2px 7px 2px 3px;align-items:center}
+  .stage-hud .weed-alert img{width:18px;height:18px}.stage-hud .weed-alert strong{white-space:nowrap}
+  .garden-stage .season-sign{left:6px;top:6px;min-width:0;padding:3px 8px;display:flex;align-items:baseline;gap:6px;border-radius:9px;box-shadow:inset 0 1px rgba(255,255,255,.65),0 3px 0 #995b2d;transform:none}
+  .garden-stage .season-sign:before,.garden-stage .season-sign:after{display:none}
+  .garden-stage .season-sign strong{font-size:11px;white-space:nowrap}.garden-stage .season-sign span{margin:0;white-space:nowrap}
 }
