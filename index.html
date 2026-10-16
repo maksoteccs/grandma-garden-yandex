@@ -1,116 +1,503 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-  <meta name="theme-color" content="#f5e7c9">
-  <title>Огород бабушки: Гигантский урожай</title>
-  <link rel="stylesheet" href="styles.css">
-  <script>
-    window.__yandexSdkSettled = false;
-    window.initYandexSDK = async function () {
-      try { window.ysdk = await YaGames.init(); }
-      catch (error) { console.warn('Yandex Games SDK is unavailable:', error); }
-      finally { window.__yandexSdkSettled = true; window.dispatchEvent(new Event('yandex-sdk-ready')); }
-    };
-    window.continueWithoutSDK = function () { window.__yandexSdkSettled = true; window.dispatchEvent(new Event('yandex-sdk-ready')); };
-  </script>
-  <script async src="/sdk.js" onload="initYandexSDK()" onerror="continueWithoutSDK()"></script>
-</head>
-<body>
-  <div id="loading-screen" class="loading-screen">
-    <img src="assets/crops/cabbage.png" alt=""><h1>Огород бабушки</h1><p data-i18n="loadingText">Готовим грядки…</p>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no"
+    />
+    <meta name="theme-color" content="#f5e7c9" />
+    <title>Огород бабушки: Гигантский урожай</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.__yandexSdkSettled = false;
+      window.initYandexSDK = async function () {
+        try {
+          window.ysdk = await YaGames.init();
+        } catch (error) {
+          console.warn("Yandex Games SDK is unavailable:", error);
+        } finally {
+          window.__yandexSdkSettled = true;
+          window.dispatchEvent(new Event("yandex-sdk-ready"));
+        }
+      };
+      window.continueWithoutSDK = function () {
+        window.__yandexSdkSettled = true;
+        window.dispatchEvent(new Event("yandex-sdk-ready"));
+      };
+    </script>
+    <script
+      async
+      src="/sdk.js"
+      onload="initYandexSDK()"
+      onerror="continueWithoutSDK()"
+    ></script>
+  </head>
+  <body>
+    <div id="loading-screen" class="loading-screen">
+      <img src="assets/crops/cabbage.png" alt="" />
+      <h1 data-i18n="brand">Огород бабушки</h1>
+      <p data-i18n="loadingText">Готовим грядки…</p>
+      <button id="loading-retry" class="modal-primary" type="button" hidden>
+        Попробовать снова
+      </button>
+    </div>
 
-  <main id="game" class="game" hidden>
-    <header class="topbar">
-      <div class="wooden-brand"><i class="rope rope-left"></i><i class="rope rope-right"></i><span data-i18n="brand">Огород бабушки</span></div>
-      <div class="top-actions">
-        <div class="wallet coins"><span><img src="assets/ui/coin.svg" alt=""></span><strong id="coins-value">0</strong></div>
-        <div class="wallet seeds"><span><img src="assets/ui/seed.svg" alt=""></span><strong id="seeds-value">0</strong></div>
-        <button id="collection-button" class="icon-button collection-button" type="button" aria-label="Коллекция урожая" data-i18n-aria="collection"><img src="assets/ui/collection.svg" alt=""></button>
-        <button id="mobile-upgrades-button" class="icon-button mobile-upgrades-button" type="button" aria-label="Улучшения" data-i18n-aria="upgrades"><img src="assets/ui/upgrades.svg" alt=""></button>
-        <button id="settings-button" class="icon-button" type="button" aria-label="Настройки" data-i18n-aria="settings"><img src="assets/ui/settings.svg" alt=""></button>
-      </div>
-    </header>
+    <main id="game" class="game" hidden>
+      <header class="topbar">
+        <div class="wooden-brand">
+          <i class="rope rope-left"></i><i class="rope rope-right"></i
+          ><span data-i18n="brand">Огород бабушки</span>
+        </div>
+        <div class="top-actions">
+          <div class="wallet coins">
+            <span><img src="assets/ui/coin.svg" alt="" /></span
+            ><strong id="coins-value">0</strong>
+          </div>
+          <div class="wallet seeds">
+            <span><img src="assets/ui/seed.svg" alt="" /></span
+            ><strong id="seeds-value">0</strong>
+          </div>
+          <button
+            id="collection-button"
+            class="icon-button collection-button"
+            type="button"
+            aria-label="Коллекция урожая"
+            data-i18n-aria="collection"
+          >
+            <img src="assets/ui/collection.svg" alt="" />
+          </button>
+          <button
+            id="mobile-upgrades-button"
+            class="icon-button mobile-upgrades-button"
+            type="button"
+            aria-label="Улучшения"
+            data-i18n-aria="upgrades"
+          >
+            <img src="assets/ui/upgrades.svg" alt="" />
+          </button>
+          <button
+            id="settings-button"
+            class="icon-button"
+            type="button"
+            aria-label="Настройки"
+            data-i18n-aria="settings"
+          >
+            <img src="assets/ui/settings.svg" alt="" />
+          </button>
+        </div>
+      </header>
 
-    <section class="main-layout">
-      <div class="play-area">
-        <section id="garden-stage" class="garden-stage" aria-label="Огород" data-i18n-aria="gardenAria">
-          <img class="garden-backdrop" src="assets/art/garden-courtyard.png" alt="">
-          <svg id="hose-extension" class="hose-extension" aria-hidden="true"><path class="hose-shadow"/><path class="hose-body"/><path class="hose-light"/></svg>
-          <div id="garden-world" class="garden-world">
-            <div class="garden-scene">
-              <img class="garden-bed-art" src="assets/art/garden-bed-layer.png" alt="">
-              <div id="beds-container" class="beds-container"></div>
+      <section class="main-layout">
+        <div class="play-area">
+          <div class="garden-panel">
+            <div id="garden-camera" class="garden-camera">
+              <section
+                id="garden-stage"
+                class="garden-stage"
+                aria-label="Огород"
+                data-i18n-aria="gardenAria"
+              >
+                <img
+                  class="garden-backdrop"
+                  src="assets/art/garden-courtyard.png"
+                  alt=""
+                />
+                <div id="garden-world" class="garden-world">
+                  <div class="garden-scene">
+                    <img
+                      class="garden-bed-art"
+                      src="assets/art/garden-bed-layer.png"
+                      alt=""
+                    />
+                    <div id="beds-container" class="beds-container"></div>
+                  </div>
+                  <div
+                    id="granny-art"
+                    class="granny-art"
+                    aria-label="Весёлая бабушка со шлангом"
+                    data-i18n-aria="grannyAlt"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <img
+                      class="granny-sprite"
+                      src="assets/art/granny-hose-long.png"
+                      alt=""
+                      draggable="false"
+                    />
+                  </div>
+                </div>
+                <div id="granny-bubble" class="granny-bubble" hidden>
+                  Шланг — это лейка с интернетом!
+                </div>
+                <div
+                  id="effects-layer"
+                  class="effects-layer"
+                  aria-hidden="true"
+                ></div>
+              </section>
             </div>
-            <img id="granny-art" class="granny-art" src="assets/art/granny-hose.png" alt="Весёлая бабушка со шлангом" data-i18n-alt="grannyAlt" role="button" tabindex="0">
+            <div
+              class="stage-hud"
+              aria-label="Огород"
+              data-i18n-aria="gardenAria"
+            >
+              <div class="season-sign">
+                <strong id="season-label">Сезон 1</strong
+                ><span id="income-label">×1 урожай</span>
+              </div>
+              <div id="bed-status-list" class="bed-status-list"></div>
+              <div
+                id="income-rate"
+                class="income-rate"
+                title="Доход автополива без золотых урожаев"
+                data-i18n-title="autoIncomeHint"
+              >
+                0 монет/с
+              </div>
+            </div>
           </div>
-          <div id="granny-bubble" class="granny-bubble" hidden>Шланг — это лейка с интернетом!</div>
-          <div class="season-sign"><strong id="season-label">Сезон 1</strong><span id="income-label">×1 урожай</span></div>
-          <div id="effects-layer" class="effects-layer" aria-hidden="true"></div>
-          <div class="stage-hud">
-          <div id="bed-status-list" class="bed-status-list"></div>
-          <div id="income-rate" class="income-rate" title="Доход автополива без золотых урожаев">0 монет/с</div>
-          <div id="weed-alert" class="weed-alert" hidden><img src="assets/tools/weed.png" alt=""><span><strong data-i18n="weedAlert">На грядке сорняки!</strong><small data-i18n="weedHint">Нажми на них 3 раза</small></span></div>
-          </div>
-        </section>
 
-        <section class="beds-dock">
-          <div class="dock-heading"><span><small data-i18n="plantOn">Посадить на грядку</small><strong id="dock-bed-label">Грядка 1</strong></span><b id="harvest-count">0 урожаев</b></div>
-          <div id="crop-list" class="crop-list"></div>
-        </section>
+          <section class="beds-dock">
+            <div class="dock-heading">
+              <span
+                ><small data-i18n="plantOn">Посадить на грядку</small
+                ><strong id="dock-bed-label">Грядка 1</strong></span
+              >
+              <button
+                id="home-button"
+                class="home-entry"
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="home-modal"
+                aria-expanded="false"
+              >
+                <img src="assets/ui/home.svg" alt="" /><span data-i18n="home"
+                  >Дом бабушки</span
+                >
+              </button>
+              <b id="harvest-count">0 урожаев</b>
+            </div>
+            <div id="crop-list" class="crop-list"></div>
+          </section>
+        </div>
+
+        <div id="panel-scrim" class="panel-scrim" hidden></div>
+        <aside id="upgrades-panel" class="upgrades-panel">
+          <button
+            id="mobile-upgrades-close"
+            class="mobile-panel-close"
+            type="button"
+            aria-label="Закрыть улучшения"
+            data-i18n-aria="closeUpgrades"
+          >
+            ×
+          </button>
+          <header class="panel-heading">
+            <div>
+              <small data-i18n="gardenPower">МОЩЬ ОГОРОДА</small>
+              <h2 data-i18n="upgrades">Улучшения</h2>
+            </div>
+            <span id="total-beds-label">1 / 3</span>
+          </header>
+          <section class="tool-progress">
+            <div class="tool-visual">
+              <img
+                id="watering-can-image"
+                src="assets/tools/hose-1.png"
+                alt="Шланг"
+                data-i18n-alt="hoseAlt"
+              />
+            </div>
+            <div class="tool-copy">
+              <small data-i18n="currentTool">Текущий инструмент</small
+              ><strong id="watering-can-name">Старый шланг</strong
+              ><span id="tap-power-label">+1 роста за клик</span>
+            </div>
+            <div class="tool-level" id="watering-can-level">I</div>
+          </section>
+          <button
+            id="growth-boost-button"
+            class="boost-button growth-boost-button"
+            type="button"
+          >
+            <span class="play-icon" aria-hidden="true">▶</span>
+            <span
+              ><strong data-i18n="grandkids">Помощь внуков</strong
+              ><small id="growth-boost-label"
+                >Рост ×2 · 2 мин · за видео</small
+              ></span
+            >
+          </button>
+          <section class="rewards-card">
+            <div class="fertilizer-visual">
+              <img src="assets/tools/fertilizer.png" alt="" /><b
+                id="fertilizer-count"
+                >0</b
+              >
+            </div>
+            <div class="reward-copy">
+              <small data-i18n="gardenRewards">НАГРАДЫ ОГОРОДА</small
+              ><strong data-i18n="fertilizer">Удобрение</strong
+              ><span id="fertilizer-label">×1,5 урожай и ×1,75 рост</span>
+            </div>
+            <div class="reward-actions">
+              <button id="reward-button" type="button" disabled>
+                До награды: 8</button
+              ><button id="fertilizer-button" type="button" disabled>
+                Применить
+              </button>
+            </div>
+          </section>
+          <div id="upgrade-list" class="upgrade-list"></div>
+          <button id="boost-button" class="boost-button" type="button">
+            <span class="play-icon">▶</span
+            ><span
+              ><strong data-i18n="boost">Урожай ×2</strong
+              ><small id="boost-label" data-i18n="watchVideo"
+                >Смотреть видео</small
+              ></span
+            >
+          </button>
+          <section class="season-card">
+            <div class="seed-gem"><img src="assets/ui/seed.svg" alt="" /></div>
+            <div>
+              <small data-i18n="newSeason">Новый сезон</small
+              ><strong data-i18n="keepSeeds">Сохрани чудо-семена</strong
+              ><span id="prestige-description">Собери ещё 30 урожаев</span>
+            </div>
+            <button
+              id="prestige-button"
+              type="button"
+              disabled
+              data-i18n="startSeason"
+            >
+              Начать
+            </button>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
+
+    <div id="mega-watermelon" class="mega-watermelon" hidden>
+      <div class="mega-rays"></div>
+      <button
+        id="mega-watermelon-hit"
+        class="mega-watermelon-hit"
+        type="button"
+        aria-label="Собрать мега-урожай"
+        data-i18n-aria="megaAria"
+      >
+        <span class="mega-harvest-pile" aria-hidden="true">
+          <img
+            class="mega-crop mega-pumpkin"
+            src="assets/crops/pumpkin.png"
+            alt=""
+          />
+          <img
+            class="mega-crop mega-cabbage"
+            src="assets/crops/cabbage.png"
+            alt=""
+          />
+          <img
+            class="mega-crop mega-tomato"
+            src="assets/crops/tomato.png"
+            alt=""
+          />
+          <img
+            class="mega-crop mega-carrot"
+            src="assets/crops/carrot.png"
+            alt=""
+          />
+          <img
+            class="mega-crop mega-radish"
+            src="assets/crops/radish.png"
+            alt=""
+          />
+        </span>
+      </button>
+      <div class="mega-copy">
+        <small data-i18n="rareHarvest">РЕДКИЙ УРОЖАЙ</small>
+        <h2 data-i18n="megaWatermelon">МЕГА-УРОЖАЙ!</h2>
+        <p id="mega-watermelon-label">Собери ещё 8 овощей</p>
+        <div class="mega-progress"><i id="mega-watermelon-progress"></i></div>
+        <div class="mega-timer-row">
+          <b id="mega-timer-label">3 сек.</b
+          ><span class="mega-timer"><i id="mega-timer-progress"></i></span>
+        </div>
       </div>
+    </div>
 
-      <div id="panel-scrim" class="panel-scrim" hidden></div>
-      <aside id="upgrades-panel" class="upgrades-panel">
-        <button id="mobile-upgrades-close" class="mobile-panel-close" type="button" aria-label="Закрыть улучшения" data-i18n-aria="closeUpgrades">×</button>
-        <header class="panel-heading"><div><small data-i18n="gardenPower">МОЩЬ ОГОРОДА</small><h2 data-i18n="upgrades">Улучшения</h2></div><span id="total-beds-label">1 / 3</span></header>
-        <section class="tool-progress">
-          <div class="tool-visual"><img id="watering-can-image" src="assets/tools/hose-1.png" alt="Шланг" data-i18n-alt="hoseAlt"></div>
-          <div class="tool-copy"><small data-i18n="currentTool">Текущий инструмент</small><strong id="watering-can-name">Старый шланг</strong><span id="tap-power-label">+1 роста за клик</span></div>
-          <div class="tool-level" id="watering-can-level">I</div>
-        </section>
-        <section class="rewards-card">
-          <div class="fertilizer-visual"><img src="assets/tools/fertilizer.png" alt=""><b id="fertilizer-count">0</b></div>
-          <div class="reward-copy"><small data-i18n="gardenRewards">НАГРАДЫ ОГОРОДА</small><strong data-i18n="fertilizer">Удобрение</strong><span id="fertilizer-label">×1,5 урожай и ×1,75 рост</span></div>
-          <div class="reward-actions"><button id="reward-button" type="button" disabled>До награды: 8</button><button id="fertilizer-button" type="button" disabled>Применить</button></div>
-        </section>
-        <div id="upgrade-list" class="upgrade-list"></div>
-        <button id="boost-button" class="boost-button" type="button"><span class="play-icon">▶</span><span><strong data-i18n="boost">Урожай ×2</strong><small id="boost-label" data-i18n="watchVideo">Смотреть видео</small></span></button>
-        <section class="season-card"><div class="seed-gem"><img src="assets/ui/seed.svg" alt=""></div><div><small data-i18n="newSeason">Новый сезон</small><strong data-i18n="keepSeeds">Сохрани чудо-семена</strong><span id="prestige-description">Собери ещё 30 урожаев</span></div><button id="prestige-button" type="button" disabled data-i18n="startSeason">Начать</button></section>
-      </aside>
-    </section>
-  </main>
-
-  <div id="toast-stack" class="toast-stack" aria-live="polite"></div>
-
-  <div id="mega-watermelon" class="mega-watermelon" hidden>
-    <div class="mega-rays"></div>
-    <button id="mega-watermelon-hit" class="mega-watermelon-hit" type="button" aria-label="Собрать мега-урожай" data-i18n-aria="megaAria">
-      <span class="mega-harvest-pile" aria-hidden="true">
-        <img class="mega-crop mega-pumpkin" src="assets/crops/pumpkin.png" alt="">
-        <img class="mega-crop mega-cabbage" src="assets/crops/cabbage.png" alt="">
-        <img class="mega-crop mega-tomato" src="assets/crops/tomato.png" alt="">
-        <img class="mega-crop mega-carrot" src="assets/crops/carrot.png" alt="">
-        <img class="mega-crop mega-radish" src="assets/crops/radish.png" alt="">
-      </span>
-    </button>
-    <div class="mega-copy"><small data-i18n="rareHarvest">РЕДКИЙ УРОЖАЙ</small><h2 data-i18n="megaWatermelon">МЕГА-УРОЖАЙ!</h2><p id="mega-watermelon-label">Собери ещё 8 овощей</p><div class="mega-progress"><i id="mega-watermelon-progress"></i></div><div class="mega-timer-row"><b id="mega-timer-label">3 сек.</b><span class="mega-timer"><i id="mega-timer-progress"></i></span></div></div>
-  </div>
-
-  <div id="collection-modal" class="modal-backdrop" hidden>
-    <section class="modal-card collection-modal" role="dialog" aria-modal="true"><button id="collection-close" class="modal-close" type="button" aria-label="Закрыть" data-i18n-aria="close">×</button><small data-i18n="fillAlbum">Заполни альбом</small><h2 data-i18n="collection">Коллекция урожая</h2><div id="collection-list" class="collection-grid"></div></section>
-  </div>
-  <div id="offline-modal" class="modal-backdrop" hidden>
-    <section class="modal-card" role="dialog" aria-modal="true"><div class="modal-art">☾</div><small data-i18n="welcomeBack">С возвращением!</small><h2 data-i18n="gardenWorked">Огород работал без тебя</h2><p id="offline-copy"></p><button id="offline-double" class="modal-primary" type="button">▶ <span data-i18n="doubleReward">Забрать ×2 за видео</span></button><button id="offline-collect" class="modal-secondary" type="button" data-i18n="collect">Забрать</button></section>
-  </div>
-  <div id="prestige-modal" class="modal-backdrop" hidden>
-    <section class="modal-card" role="dialog" aria-modal="true"><div class="modal-art seed-art">◆</div><small data-i18n="newSeason">Новый сезон</small><h2 data-i18n="startOver">Начать огород заново?</h2><p id="prestige-copy"></p><button id="prestige-confirm" class="modal-primary" type="button" data-i18n="startSeason">Начать</button><button id="prestige-cancel" class="modal-secondary" type="button" data-i18n="later">Позже</button></section>
-  </div>
-  <div id="settings-modal" class="modal-backdrop" hidden>
-    <section class="modal-card settings-card" role="dialog" aria-modal="true"><button id="settings-close-x" class="modal-close" type="button" aria-label="Закрыть" data-i18n-aria="close">×</button><div class="modal-art settings-art">⚙</div><h2 data-i18n="settings">Настройки</h2><button id="language-toggle" class="setting-row" type="button"><span data-i18n="language">Язык</span><b>Русский</b></button><button id="save-button" class="setting-row" type="button"><span data-i18n="save">Сохранить прогресс</span><b>✓</b></button><button id="settings-close" class="modal-primary" type="button" data-i18n="continue">Продолжить</button></section>
-  </div>
-  <script src="game.js"></script>
-</body>
+    <div id="home-modal" class="modal-backdrop" hidden>
+      <section
+        class="modal-card home-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="home-title"
+        aria-describedby="home-permanent"
+      >
+        <header class="home-header">
+          <img class="home-heading-icon" src="assets/ui/home.svg" alt="" />
+          <div>
+            <small data-i18n="homeKicker">Урожай ради уюта</small>
+            <h2 id="home-title" data-i18n="home">Дом бабушки</h2>
+            <p data-i18n="homeIntro">
+              Порадуй бабушку покупками за монеты с огорода.
+            </p>
+          </div>
+          <button
+            id="home-close"
+            class="modal-close"
+            type="button"
+            aria-label="Закрыть"
+            data-i18n-aria="close"
+          >
+            ×
+          </button>
+        </header>
+        <div class="home-summary">
+          <div class="home-wallet">
+            <small data-i18n="homeBalance">В кошельке</small
+            ><span
+              ><img src="assets/ui/coin.svg" alt="" /><strong id="home-wallet"
+                >0</strong
+              ></span
+            >
+          </div>
+          <div class="home-comfort">
+            <strong id="home-progress-label">Уют дома: 0 из 6</strong>
+            <div
+              id="home-progress"
+              class="home-progress"
+              role="progressbar"
+              aria-labelledby="home-progress-label"
+              aria-valuemin="0"
+              aria-valuemax="6"
+              aria-valuenow="0"
+            >
+              <i id="home-progress-fill"></i>
+            </div>
+          </div>
+        </div>
+        <p
+          id="home-granny-message"
+          class="home-granny-message"
+          aria-live="polite"
+        ></p>
+        <p id="home-permanent" class="home-permanent" data-i18n="homePermanent">
+          Покупки навсегда · сохраняются между сезонами · без бонусов к росту
+        </p>
+        <div id="home-list" class="home-grid"></div>
+        <footer id="home-confirmation" class="home-confirmation" hidden>
+          <strong id="home-confirm-copy"></strong>
+          <div>
+            <button
+              id="home-cancel-button"
+              type="button"
+              data-i18n="homeCancel"
+            >
+              Пока не покупать</button
+            ><button
+              id="home-confirm-button"
+              type="button"
+              data-i18n="homeConfirmBuy"
+            >
+              Да, порадовать бабушку
+            </button>
+          </div>
+        </footer>
+      </section>
+    </div>
+    <div id="collection-modal" class="modal-backdrop" hidden>
+      <section
+        class="modal-card collection-modal"
+        role="dialog"
+        aria-modal="true"
+      >
+        <button
+          id="collection-close"
+          class="modal-close"
+          type="button"
+          aria-label="Закрыть"
+          data-i18n-aria="close"
+        >
+          ×</button
+        ><small data-i18n="fillAlbum">Заполни альбом</small>
+        <h2 data-i18n="collection">Коллекция урожая</h2>
+        <div id="collection-list" class="collection-grid"></div>
+      </section>
+    </div>
+    <div id="offline-modal" class="modal-backdrop" hidden>
+      <section class="modal-card" role="dialog" aria-modal="true">
+        <div class="modal-art">☾</div>
+        <small data-i18n="welcomeBack">С возвращением!</small>
+        <h2 data-i18n="gardenWorked">Огород работал без тебя</h2>
+        <p id="offline-copy"></p>
+        <button id="offline-double" class="modal-primary" type="button">
+          ▶ <span data-i18n="doubleReward">Забрать ×2 за видео</span></button
+        ><button
+          id="offline-collect"
+          class="modal-secondary"
+          type="button"
+          data-i18n="collect"
+        >
+          Забрать
+        </button>
+      </section>
+    </div>
+    <div id="prestige-modal" class="modal-backdrop" hidden>
+      <section class="modal-card" role="dialog" aria-modal="true">
+        <div class="modal-art seed-art">◆</div>
+        <small data-i18n="newSeason">Новый сезон</small>
+        <h2 data-i18n="startOver">Начать огород заново?</h2>
+        <p id="prestige-copy"></p>
+        <button
+          id="prestige-confirm"
+          class="modal-primary"
+          type="button"
+          data-i18n="startSeason"
+        >
+          Начать</button
+        ><button
+          id="prestige-cancel"
+          class="modal-secondary"
+          type="button"
+          data-i18n="later"
+        >
+          Позже
+        </button>
+      </section>
+    </div>
+    <div id="settings-modal" class="modal-backdrop" hidden>
+      <section class="modal-card settings-card" role="dialog" aria-modal="true">
+        <button
+          id="settings-close-x"
+          class="modal-close"
+          type="button"
+          aria-label="Закрыть"
+          data-i18n-aria="close"
+        >
+          ×
+        </button>
+        <div class="modal-art settings-art">⚙</div>
+        <h2 data-i18n="settings">Настройки</h2>
+        <button id="language-toggle" class="setting-row" type="button">
+          <span data-i18n="language">Язык</span><b>Русский</b></button
+        ><button id="save-button" class="setting-row" type="button">
+          <span data-i18n="save">Сохранить прогресс</span><b>✓</b></button
+        ><button
+          id="settings-close"
+          class="modal-primary"
+          type="button"
+          data-i18n="continue"
+        >
+          Продолжить
+        </button>
+      </section>
+    </div>
+    <script src="game.js"></script>
+  </body>
 </html>

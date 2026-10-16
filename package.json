@@ -1,0 +1,16 @@
+{
+  "name": "grandma-garden",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "test": "node tests/sdk-smoke.cjs && node tests/home-smoke.cjs",
+    "build": "node scripts/build.cjs",
+    "format": "prettier --write game.js styles.css index.html scripts tests"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "jszip": "3.10.1",
+    "prettier": "3.9.10",
+    "sharp": "0.35.5"
+  }
+}
